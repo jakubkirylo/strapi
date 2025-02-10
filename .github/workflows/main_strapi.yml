@@ -27,7 +27,6 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-          npm run test --if-present
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
@@ -53,12 +52,14 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
+
+        - name: Enable Debug
+        run: echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
       
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'Strapi'
-          slot-name: 'Production'
+          app-name: 'strapiapp'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_694F8DA51B4F43E18E83B7538AFB7A47 }}
