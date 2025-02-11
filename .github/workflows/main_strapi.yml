@@ -61,6 +61,5 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'strapiapp'
-          slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_694F8DA51B4F43E18E83B7538AFB7A47 }}
