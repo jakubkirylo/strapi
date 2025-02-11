@@ -62,4 +62,4 @@ jobs:
         with:
           app-name: 'strapiapp'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_694F8DA51B4F43E18E83B7538AFB7A47 }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}
